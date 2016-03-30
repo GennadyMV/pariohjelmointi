@@ -22,7 +22,7 @@ public class Ohjelma {
             pw.flush();
 
             try {
-                Thread.sleep(1000 * 60 * 5); // odotetaan 5 minuuttia.
+                Thread.sleep(1000 * 60 * 7); // odotetaan 5 minuuttia.
             } catch (InterruptedException ex) {
             }
         }
