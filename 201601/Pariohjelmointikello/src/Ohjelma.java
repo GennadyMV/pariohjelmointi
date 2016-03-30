@@ -19,6 +19,7 @@ public class Ohjelma {
             String name = JOptionPane.showInputDialog(frame, "Vaihto! Kirjoita näppäimistölle tulevan ohjelmoijan tunnus.");
 
             pw.println(new Date() + " swap performed, programmer now: " + name);
+            pw.flush();
 
             try {
                 Thread.sleep(1000 * 60 * 5); // odotetaan 5 minuuttia.
