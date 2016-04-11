@@ -37,7 +37,7 @@ public class Huoltoreitti {
     }
 
     public static List<Integer> huoltoreitti(List<Integer> tornit) {
-        // BEGIN STUB: return tornit;
+        // STUB: return tornit;
         // BEGIN SOLUTION
         List<Piste> pisteet = new ArrayList<>();
         for (int i = 0; i < tornit.size(); i += 2) {
