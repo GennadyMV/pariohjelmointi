@@ -9,7 +9,7 @@ import java.util.Random;
 import org.junit.*;
 import robotti.Ohjain;
 
-@Points("29.3")
+@Points("4")
 public class C_RatkaiseTest {
 
     @Rule

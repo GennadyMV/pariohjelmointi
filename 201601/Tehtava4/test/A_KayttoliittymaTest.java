@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 import org.junit.*;
 import robotti.Ohjain;
 
-@Points("29.1")
+@Points("4")
 public class A_KayttoliittymaTest {
 
     @Rule

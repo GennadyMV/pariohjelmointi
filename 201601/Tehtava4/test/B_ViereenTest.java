@@ -9,7 +9,7 @@ import java.util.Random;
 import org.junit.*;
 import robotti.Ohjain;
 
-@Points("29.2")
+@Points("4")
 public class B_ViereenTest {
 
     @Rule
