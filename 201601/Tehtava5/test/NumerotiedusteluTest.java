@@ -24,7 +24,7 @@ public class NumerotiedusteluTest {
     /*
      * osa 1
      */
-    @Points("6")
+    @Points("5")
     @Test
     public void tulostaaMenunJaLopettaa() throws Throwable {
         String syote = "x\n";
@@ -43,7 +43,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void numeronLisays() throws Throwable {
         String syote = "1\npekka\n040-12345\nx\n";
@@ -57,7 +57,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void numeronLisaysKahdelleHenkilolle() throws Throwable {
         String syote = "1\npekka\n040-12345\n1\nmikko\n040-34343\nx\n";
@@ -65,7 +65,7 @@ public class NumerotiedusteluTest {
         doStuff(syote);
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void kahdenNumeronLisaysYhdelle() throws Throwable {
         String syote = "1\npekka\n040-12345\n1\npekka\n040-34343\nx\n";
@@ -73,7 +73,7 @@ public class NumerotiedusteluTest {
         doStuff(syote);
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void lisatynNumeronHaku() throws Throwable {
         String syote = "1\npekka\n040-12345\n2\npekka\nx\n";
@@ -88,7 +88,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void kahdenLisatynNumeronHaku() throws Throwable {
         String syote = "1\npekka\n040-12345\n1\npekka\n040-43212\n2\npekka\nx\n";
@@ -102,7 +102,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void eiYlimaaraista() throws Throwable {
         String syote = "1\npekka\n040-12345\n1\njukka\n040-11111\n1\npekka\n040-43212\n2\npekka\nx\n";
@@ -118,7 +118,7 @@ public class NumerotiedusteluTest {
         assertFalse(viestiEi(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void olematonEiLoydy() throws Throwable {
         String syote = "1\npekka\n040-12345\n1\njukka\n040-11111\n1\npekka\n040-43212\n2\narto\nx\n";
@@ -140,7 +140,7 @@ public class NumerotiedusteluTest {
      *
      */
 
-    @Points("6")
+    @Points("5")
     @Test
     public void lisatynHenkilonHaku() throws Throwable {
         String syote = "1\npekka\n040-12345\n3\n040-12345\nx\n";
@@ -156,7 +156,7 @@ public class NumerotiedusteluTest {
         assertFalse(viestiEi(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void kaksinumeroisenHakuMolemmillaNumeroilla1() throws Throwable {
         String syote = "1\npekka\n040-12345\n1\njukka\n040-11111\n1\npekka\n040-43212\n3\n040-12345\nx\n";
@@ -178,7 +178,7 @@ public class NumerotiedusteluTest {
         assertFalse(viestiEi(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void kaksinumeroisenHakuMolemmillaNumeroilla2() throws Throwable {
         String syote = "1\npekka\n040-12345\n1\njukka\n040-11111\n1\npekka\n040-43212\n3\n040-43212\nx\n";
@@ -197,7 +197,7 @@ public class NumerotiedusteluTest {
     /*
      * osa 2
      */
-    @Points("6")
+    @Points("5")
     @Test
     public void tulostaaMenunJaLopettaaOsa2() throws Throwable {
         String syote = "x\n";
@@ -212,7 +212,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void osotteenLisays() throws Throwable {
         String syote = "4\npekka\nMannerheimintie\nhelsinki\nx\n";
@@ -228,7 +228,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void osotteenHaku() throws Throwable {
         String syote = "4\npekka\nmannerheimintie\nhelsinki\n5\npekka\nx\n";
@@ -244,7 +244,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void osoitteettomanTietojenHaku() throws Throwable {
         String syote = "1\npekka\n09-12345\n4\nantti\nmannerheimintie\nhelsinki\n5\npekka\nx\n";
@@ -264,7 +264,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void numeroOsoitteelliselle() throws Throwable {
         String syote = "4\npekka\nmannerheimintie\nhelsinki\n1\npekka\n09-12345\n5\npekka\nx\n";
@@ -282,7 +282,7 @@ public class NumerotiedusteluTest {
         assertFalse(viestiEi(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void numeroOsoitteelliselle2() throws Throwable {
         String syote = "4\npekka\nmannerheimintie\nhelsinki\n1\npekka\n09-12345\n2\npekka\nx\n";
@@ -294,7 +294,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void osoiteNumerolliselle() throws Throwable {
         String syote = "1\npekka\n09-12345\n4\npekka\nmannerheimintie\nhelsinki\n5\npekka\nx\n";
@@ -312,7 +312,7 @@ public class NumerotiedusteluTest {
         assertFalse(viestiEi(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void olematontaEiTunneta() throws Throwable {
         String syote = "1\npekka\n09-12345\n4\npekka\nmannerheimintie\nhelsinki\n5\nseppo\nx\n";
@@ -337,7 +337,7 @@ public class NumerotiedusteluTest {
     /*
      * osa 3
      */
-    @Points("6")
+    @Points("5")
     @Test
     public void tulostaaMenunJaLopettaaOsa3() throws Throwable {
         String syote = "x\n";
@@ -350,7 +350,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void poisto() throws Throwable {
         String syote = "4\npekka\nMannerheimintie\nhelsinki\n6\npekka\nx\n";
@@ -362,7 +362,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void poistettuEiLoydy() throws Throwable {
         String syote = "4\npekka\nMannerheimintie\nhelsinki\n6\npekka\n5\npekka\nx\n";
@@ -378,7 +378,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void olemattomanPoisto() throws Throwable {
         String syote = "4\npekka\nMannerheimintie\nhelsinki\n6\njukka\nx\n";
@@ -390,7 +390,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void poistoJaHaut1() throws Throwable {
         String syote = "1\njukka\n02-212121\n4\npekka\nmannerheimintie\nhelsinki\n1\npekka\n09-12345\n5\npekka\n6\npekka\n"
@@ -405,7 +405,7 @@ public class NumerotiedusteluTest {
         assertFalse(viestiEi(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void poistoJaHaut2() throws Throwable {
         String syote = "1\njukka\n02-212121\n4\npekka\nmannerheimintie\nhelsinki\n1\npekka\n09-12345\n1\npekka\n09-54321\n6\npekka\n"
@@ -420,7 +420,7 @@ public class NumerotiedusteluTest {
         assertFalse(viestiEi(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void poistoJaHaut3() throws Throwable {
         String syote = "1\njukka\n02-212121\n4\npekka\nmannerheimintie\nhelsinki\n1\npekka\n09-12345\n1\npekka\n09-54321\n6\npekka\n"
@@ -439,7 +439,7 @@ public class NumerotiedusteluTest {
         assertFalse(viestiEi(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void poistoJaHaut4() throws Throwable {
         String syote = "1\njukka\n02-212121\n4\npekka\nmannerheimintie\nhelsinki\n1\npekka\n09-12345\n1\npekka\n09-54321\n6\npekka\n"
@@ -457,7 +457,7 @@ public class NumerotiedusteluTest {
     /*
      * osa 4
      */
-    @Points("6")
+    @Points("5")
     @Test
     public void tulostaaMenunJaLopettaaOsa4() throws Throwable {
         String syote = "x\n";
@@ -472,7 +472,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void filtteroituHaku1() throws Throwable {
         String syote = ""
@@ -506,7 +506,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void filtteroituHaku2() throws Throwable {
         String syote = ""
@@ -540,7 +540,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void filtteroituHaku3() throws Throwable {
         String syote = ""
@@ -574,7 +574,7 @@ public class NumerotiedusteluTest {
         assertFalse(viestiEi(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void filtteroituHaku4() throws Throwable {
         String syote = ""
@@ -608,7 +608,7 @@ public class NumerotiedusteluTest {
         assertTrue(viesti(rivi, syote), sisaltaa(rivit, rivi));
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void filtteroituHaku5() throws Throwable {
         String syote = ""
@@ -655,7 +655,7 @@ public class NumerotiedusteluTest {
                 + "pitäisi jukan tietojen olla ennen pekan tietoja", jukka < pekka);
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void filtteroituHaku6() throws Throwable {
         String syote = ""
@@ -708,7 +708,7 @@ public class NumerotiedusteluTest {
                 + "pitäisi jukan tietojen olla ennen pekan tietoja", jukka < pekka);
     }
 
-    @Points("6")
+    @Points("5")
     @Test
     public void filtteroituHaku7() throws Throwable {
         String syote = ""

@@ -31,7 +31,7 @@ public class Toistuvat {
     }
 
     public static String kolmenMittainenToisto(String syote) {
-        // BEGIN STUB: return syote;
+        // STUB: return syote;
         // BEGIN SOLUTION
         Map<String, Integer> kolmenMittaisetMerkkijonot = new HashMap<>();
         for (int i = 0; i + 3 <= syote.length(); i++) {
