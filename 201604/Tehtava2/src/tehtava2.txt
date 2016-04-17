@@ -1,0 +1,154 @@
+Tässä tehdään ohjelma joukkueiden ja pelaajien hallintaan.
+
+Tee luokka Joukkue, johon tallennetaan joukkueen nimi (String). Tee luokkaan 
+seuraavat metodit:
+
+* konstruktori, jolle annetaan joukkueen nimi
+* haeNimi, joka palauttaa joukkueen nimen
+
+Seuraava pääohjelma testaa luokan toimintaa:
+
+***
+public class Main {
+    public static void main(String[] args) {
+        Joukkue tapiiri = new Joukkue("FC Tapiiri");
+        System.out.println("Joukkue: " + tapiiri.haeNimi());
+    }
+}
+***
+Ohjelman tulostus on seuraava:
+
+---
+Joukkue: FC Tapiiri
+---
+
+
+Luo tämän jälkeen luokka Pelaaja, johon tallennetaan pelaajan nimi ja tehtyjen 
+maalien määrä. Tee luokkaan kaksi konstruktoria: yksi jolle annetaan vain 
+pelaajan nimi, toinen jolle annetaan sekä pelaajan nimi että pelaajan tekemien 
+maalien määrä. Lisää pelaajalle myös metodit:
+
+* haeNimi, joka palauttaa pelaajan nimen
+* maalit, joka palauttaa tehtyjen maalien määrän
+* toString, joka palauttaa pelaajan merkkijonoesityksen
+
+***
+public class Main {
+    public static void main(String[] args) {
+        Joukkue tapiiri = new Joukkue("FC Tapiiri");
+        System.out.println("Joukkue: " + tapiiri.haeNimi());
+
+        Pelaaja matti = new Pelaaja("Matti");
+        System.out.println("Pelaaja: " + matti);
+
+        Pelaaja pekka = new Pelaaja("Pekka", 39);
+        System.out.println("Pelaaja: " + pekka);
+    }
+}
+***
+
+---
+Joukkue: FC Tapiiri
+Pelaaja: Matti, maaleja 0
+Pelaaja: Pekka, maaleja 39
+---
+
+Lisää tämän jälkeen luokkaan Joukkue seuraavat metodit:
+
+* lisaaPelaaja, joka lisää pelaajan joukkueeseen
+* tulostaPelaajat, joka tulostaa joukkueessa olevat pelaajat
+
+Tallenna joukkueessa olevat pelaajat Joukkue-luokan sisäiseen ArrayList-listaan.
+
+Seuraava pääohjelma testaa luokan toimintaa:
+
+***
+public class Main {
+    public static void main(String[] args) {
+        Joukkue tapiiri = new Joukkue("FC Tapiiri");
+
+        Pelaaja matti = new Pelaaja("Matti");
+        Pelaaja pekka = new Pelaaja("Pekka", 39);
+
+        tapiiri.lisaaPelaaja(matti);
+        tapiiri.lisaaPelaaja(pekka);
+        tapiiri.lisaaPelaaja(new Pelaaja("Mikael", 1)); //vaikutus on sama kuin edellisillä
+
+        tapiiri.tulostaPelaajat();
+    }
+}
+***
+
+Ohjelman tulostuksen tulisi olla seuraava:
+
+---
+Matti, maaleja 0
+Pekka, maaleja 39
+Mikael, maaleja 1
+---
+
+Lisää vielä luokkaan Joukkue seuraavat metodit, joiden avulla joukkueen kokoa 
+voidaan rajoittaa ja tarkastella:
+
+* asetaMaksimikoko(int maksimikoko), joka asettaa joukkueen maksimikoon (eli maksimimäärän pelaajia)
+* koko, joka palauttaa pelaajien määrän (int)
+
+Joukkueen suurin sallittu pelaajamäärä on oletusarvoisesti 16. Metodin 
+asetaMaksimikoko avulla tätä rajaa voi muuttaa. Muuta metodia lisaaPelaaja niin, 
+että se ei lisää pelaajaa joukkueeseen, jos sallittu pelaajamäärä ylittyisi.
+
+HUOM: muista lisätä oletusarvoinen maksimikoko koodiisi sillä muuten arvoksi 
+tulee 0. Tämä aiheuttaa edellisen kohdan testien hajoamisen, sillä testit luovat 
+oletusmaksimikokoisia joukkueita ja jos joukkueen maksimikoko on 0, ei 
+joukkueeseen voi lisätä yhtään pelaajaa.
+
+Seuraava pääohjelma testaa luokan toimintaa:
+
+***
+public class Main {
+    public static void main(String[] args) {
+        Joukkue tapiiri = new Joukkue("FC Tapiiri");
+        tapiiri.asetaMaksimikoko(1);
+
+        Pelaaja matti = new Pelaaja("Matti");
+        Pelaaja pekka = new Pelaaja("Pekka", 39);
+        tapiiri.lisaaPelaaja(matti);
+        tapiiri.lisaaPelaaja(pekka);
+        tapiiri.lisaaPelaaja(new Pelaaja("Mikael", 1)); //vaikutus on sama kuin edellisillä
+
+        System.out.println("Pelaajia yhteensä: " + tapiiri.koko());
+    }
+}
+***
+
+---
+Pelaajia yhteensä: 1
+---
+
+Lisätään lopuksi ohjelmaan vielä mahdollisuus maalitilastojen tarkasteluun.
+
+Lisää luokkaan Joukkue metodi:
+
+* maalit, joka palauttaa joukkueen pelaajien tekemien maalien yhteismäärän.
+
+Seuraava pääohjelma testaa luokan toimintaa:
+
+***
+public class Main {
+    public static void main(String[] args) {
+        Joukkue tapiiri = new Joukkue("FC Tapiiri");
+
+        Pelaaja matti = new Pelaaja("Matti");
+        Pelaaja pekka = new Pelaaja("Pekka", 39);
+        tapiiri.lisaaPelaaja(matti);
+        tapiiri.lisaaPelaaja(pekka);
+        tapiiri.lisaaPelaaja(new Pelaaja("Mikael", 1)); //vaikutus on sama kuin edellisillä
+
+        System.out.println("Maaleja yhteensä: " + tapiiri.maalit());
+    }
+}
+***
+
+---
+Maaleja yhteensä: 40
+---
