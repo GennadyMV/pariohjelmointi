@@ -10,7 +10,7 @@ import org.junit.Test;
 public class TaikanelioTest {
 
     @Test
-    @Points("3")
+    @Points("T3")
     public void rivienSummatOikein() {
         int[][] t = {{1, 2}, {3, 4}};
 
@@ -23,7 +23,7 @@ public class TaikanelioTest {
     }
 
     @Test
-    @Points("3")
+    @Points("T3")
     public void rivienSummatOikein2() {
         int[][] t = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
@@ -37,7 +37,7 @@ public class TaikanelioTest {
     }
 
     @Test
-    @Points("3")
+    @Points("T3")
     public void sarakkeidenSummatOikein() {
         int[][] t = {{1, 2}, {3, 4}};
 
@@ -50,7 +50,7 @@ public class TaikanelioTest {
     }
 
     @Test
-    @Points("3")
+    @Points("T3")
     public void sarakkeidenSummatOikein2() {
         int[][] t = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
@@ -64,7 +64,7 @@ public class TaikanelioTest {
     }
 
     @Test
-    @Points("3")
+    @Points("T3")
     public void lavistajienSummatOikein() {
         int[][] t = {{1, 2}, {3, 4}};
 
@@ -79,7 +79,7 @@ public class TaikanelioTest {
     }
 
     @Test
-    @Points("3")
+    @Points("T3")
     public void lavistajienSummatOikein2() {
         int[][] t = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
@@ -94,7 +94,7 @@ public class TaikanelioTest {
     }
 
     @Test
-    @Points("3")
+    @Points("T3")
     public void lavistajienSummatOikein3() {
         int[][] t = {{1, 1}, {5, 7}};
 
@@ -107,13 +107,13 @@ public class TaikanelioTest {
     }
 
     @Test
-    @Points("3")
+    @Points("T3")
     public void testaaTehdas() {
         taikanelioTehdas(3);
     }
 
     @Test
-    @Points("3")
+    @Points("T3")
     public void testaaTehdas2() {
         taikanelioTehdas(9);
     }

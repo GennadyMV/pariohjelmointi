@@ -27,19 +27,19 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
         klassJ = Reflex.reflect(klassNameJ);
     }
 
-    @Points("2")
+    @Points("T2")
     @Test
     public void luokkaJulkinen() {
         assertTrue("Luokan " + klassNameJ + " pitää olla julkinen, eli se tulee määritellä\npublic class " + klassNameJ + " {...\n}", klassJ.isPublic());
     }
 
-    @Points("2")
+    @Points("T2")
     @Test
     public void eiYlimaaraisiaMuuttujiaLuokassaJoukkue() {
         saniteettitarkastus("Joukkue", 3, "joukkueen nimen, pelaajat ja maksimikoon muistavat oliomuuttujat");
     }
 
-    @Points("2")
+    @Points("T2")
     @Test
     public void testaaJoukkueKonstruktori() throws Throwable {
         Reflex.MethodRef1<Object, Object, String> ctor = klassJ.constructor().taking(String.class).withNiceError();
@@ -53,7 +53,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
     }
 
     @Test
-    @Points("2")
+    @Points("T2")
     public void luokanJoukkueMetodiHaeNimi() throws Throwable {
         String metodi = "haeNimi";
 
@@ -86,20 +86,20 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
     /*
      * 
      */
-    @Points("2")
+    @Points("T2")
     @Test
     public void luokkaPelaajaJulkinen() {
         klassP = Reflex.reflect(klassNameP);
         assertTrue("Luokan " + klassNameP + " pitää olla julkinen, eli se tulee määritellä\npublic class " + klassNameJ + " {...\n}", klassJ.isPublic());
     }
 
-    @Points("2")
+    @Points("T2")
     @Test
     public void eiYlimaaraisiaMuuttujiaPelaajalla() {
         saniteettitarkastus("Pelaaja", 2, "nimen ja maalimäärän muistavat oliomuuttujat");
     }
 
-    @Points("2")
+    @Points("T2")
     @Test
     public void testaaPelaajanKaksiparametrinenKonstruktori() throws Throwable {
         klassP = Reflex.reflect(klassNameP);
@@ -108,7 +108,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
         ctor.invoke("Arto", 39);
     }
 
-    @Points("2")
+    @Points("T2")
     @Test
     public void testaaPelaajanYksiparametrinenKonstruktori() throws Throwable {
         klassP = Reflex.reflect(klassNameP);
@@ -129,7 +129,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
         return ctor.invoke(nimi);
     }
 
-    @Points("2")
+    @Points("T2")
     @Test
     public void pelaajanMetodiHaeNimi() throws Throwable {
         klassP = Reflex.reflect(klassNameP);
@@ -161,7 +161,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
                 .returning(String.class).takingNoParams().withNiceError(v).invoke());
     }
 
-    @Points("2")
+    @Points("T2")
     @Test
     public void pelaajanMetodiMaalit() throws Throwable {
         klassP = Reflex.reflect(klassNameP);
@@ -201,7 +201,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
      * 
      */
     @Test
-    @Points("2")
+    @Points("T2")
     public void testLuoPelaajaNimellaJaMaaleillaToString() {
         Class joukkue = Utils.getClass(pelaajaNimi);
         Constructor constructor = null;
@@ -242,7 +242,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
      * 
      */
     @Test
-    @Points("2")
+    @Points("T2")
     public void luokanJoukkueMetodiLisaa() throws Throwable {
 
         String metodi = "lisaaPelaaja";
@@ -271,7 +271,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
     }
 
     @Test
-    @Points("2")
+    @Points("T2")
     public void luokallaJoukkueTulostaPelaajat() throws Throwable {
 
         String metodi = "tulostaPelaajat";
@@ -290,7 +290,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
     }
 
     @Test
-    @Points("2")
+    @Points("T2")
     public void testLisaaPelaaja() {
         Class joukkueClass = Utils.getClass(joukkueNimi);
         Constructor constructor = null;
@@ -379,7 +379,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
      * 
      */
     @Test
-    @Points("2")
+    @Points("T2")
     public void luokallaJoukkueMetodiAsetaMaksimikoko() throws Throwable {
 
         String metodi = "asetaMaksimikoko";
@@ -398,7 +398,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
     }
 
     @Test
-    @Points("2")
+    @Points("T2")
     public void luokallaJoukkueMetodiKoko() throws Throwable {
 
         String metodi = "koko";
@@ -417,7 +417,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
     }
 
     @Test
-    @Points("2")
+    @Points("T2")
     public void testKoko() {
         Class joukkueClass = Utils.getClass(joukkueNimi);
         Constructor constructor = null;
@@ -499,7 +499,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
      * 
      */
     @Test
-    @Points("2")
+    @Points("T2")
     public void testAsetaMaksimikoko() {
         Class joukkueClass = Utils.getClass(joukkueNimi);
         Constructor constructor = null;
@@ -592,7 +592,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
      * 
      */
     @Test
-    @Points("2")
+    @Points("T2")
     public void luokallaJoukkueMetodiMaalit() throws Throwable {
 
         String metodi = "maalit";
@@ -611,7 +611,7 @@ public class JoukkueetJaPelaajatTest<_Joukkue, _Pelaaja> {
     }
 
     @Test
-    @Points("2")
+    @Points("T2")
     public void testJoukkueenMaalit() {
         Class joukkueClass = Utils.getClass(joukkueNimi);
         Constructor constructor = null;

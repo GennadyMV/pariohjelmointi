@@ -23,20 +23,20 @@ public class Lukutilasto1Test {
         klass = Reflex.reflect(klassName);
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void luokkaJulkinen() {
         assertTrue("Luokan " + klassName + " pitää olla julkinen, eli se tulee määritellä\n"
                 + "public class " + klassName + " {...\n}", klass.isPublic());
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void testaaKonstruktori() throws Throwable {
         newOlio();
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void onkoMetodiaMetodiLisaaLuku1() throws Throwable {
         String metodi = "lisaaLuku";
@@ -44,7 +44,7 @@ public class Lukutilasto1Test {
         hasVoidMethodInt(newOlio(), metodi, param);
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void onkoMetodiaMetodiLisaaLuku() throws Throwable {
         String metodi = "lisaaLuku";
@@ -61,13 +61,13 @@ public class Lukutilasto1Test {
         klass.method(olio, metodi).returningVoid().taking(int.class).withNiceError(v).invoke(2);
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void onMetodiHaeLukujenMaara() throws Throwable {
         hasMethod0(newOlio(), "haeLukujenMaara", int.class);
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void lukujenLisaysJaMaaraToimii() throws Throwable {
         Object tilasto = newLukutilasto();
@@ -88,7 +88,7 @@ public class Lukutilasto1Test {
                 + "tilasto = new Lukutilasto(); tilasto.lisaaLuku(3); tilasto.lisaaLuku(5); tilasto.lisaaLuku(2); tilasto.lisaaLuku(-4);System.out.println( tilasto.haeLukujenMaara()); ", 4, haeLukujenMaara(tilasto));
     }
 
-     @Points("1")
+     @Points("T1")
     @Test
     public void isoLisaysJaMaaraToimii() throws Throwable {
 
@@ -105,7 +105,7 @@ public class Lukutilasto1Test {
         }
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void eiYlimaaraisiaMuuttujia1() {
         saniteettitarkastus();
@@ -114,19 +114,19 @@ public class Lukutilasto1Test {
     /*
      * osa 2
      */
-    @Points("1")
+    @Points("T1")
     @Test
     public void eiYlimaaraisiaMuuttujia2() {
         saniteettitarkastus();
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void onMetodiSumma() throws Throwable {
         hasMethod0(newOlio(), "summa", int.class);
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void summaToimii() throws Throwable {
         Object tilasto = newLukutilasto();
@@ -152,7 +152,7 @@ public class Lukutilasto1Test {
                 + "tilasto = new Lukutilasto(); tilasto.lisaaLuku(3); tilasto.lisaaLuku(5); tilasto.lisaaLuku(2); tilasto.lisaaLuku(-4) System.out.println( tilasto.summa()); ", 6, summa(tilasto));
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void isoSummaToimii() throws Throwable {
 
@@ -171,14 +171,14 @@ public class Lukutilasto1Test {
         }
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void onMetodiKeskiarvo() throws Throwable {
         hasMethod0(newOlio(),"keskiarvo", double.class, 
                 "HUOM: jos lukutilastossa ei ole yhtään lukua, palauta keskiarvoksi suoraan 0");
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void keskiarvoToimii() throws Throwable {
         Object tilasto = newLukutilasto();
@@ -209,7 +209,7 @@ public class Lukutilasto1Test {
                 + "tilasto = new Lukutilasto(); tilasto.keskiarvo(); tilasto.lisaaLuku(3); tilasto.lisaaLuku(5); tilasto.lisaaLuku(2); tilasto.lisaaLuku(-4) System.out.println( tilasto.keskiarvo()); ", 1.5, keskiarvo(tilasto), 0.01);
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void isoKeskiarvoToimii() throws Throwable {
 
@@ -232,7 +232,7 @@ public class Lukutilasto1Test {
     /*
      * osa 3
      */
-    @Points("1")
+    @Points("T1")
     @Test
     public void kayttajanSyotteidenSumma() throws Exception {
         MockInOut mio = new MockInOut("2\n-1\n");
@@ -251,7 +251,7 @@ public class Lukutilasto1Test {
         assertTrue("syötteellä 2 -1 ohjelman pitäisi tulostaa Summa: 2, tulostui: " + summaRivi, summaRivi.contains("2"));
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void kayttajanSyotteidenSumma2() {
         MockInOut mio = new MockInOut("2\n4\n1\n7\n-1\n");
@@ -266,7 +266,7 @@ public class Lukutilasto1Test {
         assertTrue("syötteellä 2 4 1 7 -1 ohjelman pitäisi tulostaa Summa: 14, tulostui: " + summaRivi, summaRivi.contains("14"));
     }
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void parillisetJaParittomat() {
         MockInOut mio = new MockInOut("2\n4\n1\n6\n-1\n");

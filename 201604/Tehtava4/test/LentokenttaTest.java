@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
 
-@Points("4")
+@Points("T4")
 public class LentokenttaTest {
 
     String klassName = "Main";

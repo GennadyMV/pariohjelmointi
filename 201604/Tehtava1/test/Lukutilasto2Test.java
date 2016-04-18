@@ -18,7 +18,7 @@ public class Lukutilasto2Test {
     @Rule
     public PowerMockRule p = new PowerMockRule();
 
-    @Points("1")
+    @Points("T1")
     @Test
     public void kaytetaanOlioa() throws Throwable {
         MockInOut mio = new MockInOut("2\n-1\n");
