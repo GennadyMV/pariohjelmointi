@@ -1,0 +1,103 @@
+Tehtava 2: Robottiohjain
+
+Tässä tehtävässä ohjaamme robottia, jonka tehtävänä on työntää varastossa 
+oleva laatikko rahtialueelle. Kuvassa robotti on musta neliö jolla on silmät, 
+laatikko harmaa, ja rahtialue turkoosi.
+
+Ohjainta varten on annettu myös automaattiset testit.
+
+Robottimme ei enää kuuntele käskyjä "ylös", "alas", "vasemmalle" ja 
+"oikealle", vaan se kulkee siihen suuntaan, mihin se osoittaa. Robottia voi 
+kääntää komennoilla Ohjain.vasen(); ja Ohjain.oikea();, jotka kääntävät robottia 
+vastapäivään ja myötäpäivään. Robotin liikuttaminen tapahtuu komennoilla 
+Ohjain.liiku();, joka siirtää robottia yhden askeleen robotin osoittamaan 
+suuntaan, ja Ohjain.liikuMonta(int montako);, joka liikuttaa robottia annetun 
+määrän askelia osoitettuun suuntaan.
+
+Robotin alkutilanteessa se suuntaa katseensa oikealle. Alla olevassa 
+tilanteessa robottia on käännetty vasemmalle, jolloin sen katse suuntaa ylös, 
+ja sitä on komennettu liikkumaan kolme kertaa.
+
+Tehtävä on jaettu useampaan osaan, joissa ensimmäisessä toteutetaan manuaalinen 
+ohjaus robotille, ja seuraavissa kehitämme automaattista ohjausta.
+
+Osa 1: OHJAUS KOMENTORIVILTÄ
+
+Tässä tehtävässä tavoitteena on rakentaa robotille manuaalinen ohjaus. Rakenna 
+ohjelma, joka kysyy käyttäjältä komentoja, ja ohjaa niiden perusteella 
+robottia.
+
+Komentojen tulee olla seuraavat:
+
+sammuta 
+    sammuttaa robottiohjaimen (komento Ohjain.sammuta();) ja poistuu ohjelmasta.
+
+vasen 
+    kääntää robottia vasemmalle (komento Ohjain.vasen();).
+
+oikea 
+    kääntää robottia oikealle (komento Ohjain.oikea();).
+
+liiku 
+    liikuttaa robottia yhden askeleen (komento Ohjain.liiku();).
+
+liikuMonta 
+    kysyy käyttäjältä askelten lukumäärää ja liikuttaa robottia halutun määrän 
+    (komento Ohjain.liikuMonta(int montako);).
+
+
+Osa 2: VIEREEN SIIRTYMINEN
+
+Lisää tekstikäyttöliittymään komento "viereen", joka siirtää robotin laatikon 
+viereen sen vasemmalle puolelle. Ratkaisua ohjelmoidessa voit olettaa, että 
+robotti lähtee liikkeelle aina sen alkusijainnista, se katsoo aluksi aina 
+samaan suuntaan, ja että rahtialue on aina samassa kohdassa.
+
+Ohjaimeen on lisätty seuraavat komennot, joiden avulla saat käyttöösi robotin, 
+laatikon ja rahtialueen sijainnin. Voit käyttää niitä robotin tarvitsemien 
+siirtymien laskemiseen.
+
+// kertoo robotin x- ja y-koordinaatit
+int robottiX = Ohjain.robottiX();
+int robottiY = Ohjain.robottiY();
+
+// kertoo laatikon x- ja y-koordinaatit
+int laatikkoX = Ohjain.laatikkoX();
+int laatikkoY = Ohjain.laatikkoY();
+
+// kertoo rahtialueen x- ja y-koordinaatit
+int tavoiteX = Ohjain.tavoiteX();
+int tavoiteY = Ohjain.tavoiteY();
+
+Yllä komentojen lisäksi käytössä on komento Ohjain.asetaLaatikkoSatunnaisesti();, 
+joka asettaa laatikon satunnaisesti pelialueelle, kuitenkin siten, että se on 
+aina robotin oikealle yläpuolella, ja rahtialueen vasemmalla yläpuolella. 
+
+Kutsu sitä ennen käynnistystä seuraavasti:
+
+public class Paaohjelma {
+
+    public static void main(String[] args) {
+        Scanner lukija = new Scanner(System.in);
+
+        Ohjain.asetaLaatikkoSatunnaisesti();
+        Ohjain.kaynnista();
+
+        // toteuta ohjelma tänne
+
+        // oma toteutuksesi, joka saattaa alkaa muodossa
+        while (true) {
+        // ...
+
+
+
+Osa 3: AUTOMAATTINEN OHJAUS
+
+Lisää vielä käyttöliittymään komento "ratkaise", joka käskee robottia työntämään 
+laatikon rahtialueelle. Kuten edellisessäkin osassa, voit olettaa että 
+laatikko on aina robotin oikealla yläpuolella ja rahtialueen vasemmalla 
+yläpuolella, robotti aloittaa liikkumisen aina samasta ruudusta, katsoo aluksi 
+samaan suuntaan, ja että rahtialue on aina samassa ruudussa. Komennon "ratkaise" 
+tulee toimia myös silloin, kun se annetaan komennon "viereen" jälkeen.
+
+Komennon "ratkaise" tulee toimia vaikka robotti ei olisi laatikon vieressä.

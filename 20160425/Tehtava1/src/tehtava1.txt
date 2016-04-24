@@ -1,0 +1,40 @@
+Tehtävä 1: Järjestäminen
+
+Toteuta luokkaan Jarjestaja staattinen metodi
+
+public static void jarjesta(int[] taulukko)
+
+Joka järjestää parametrina annetun taulukon luvut suuruusjärjestykseen 
+(suurin ensin). Huom! Toteutus tulee tehdä itse, eli älä käytä Javan
+valmiita välineitä järjestämiseen. 
+
+Palauttakaa tehtävä vasta kun tiedätte, että järjestämisalgoritminne toimii.
+
+Esimerkki:
+
+int[] luvut = {1, 5, 1, 2, -1, 777};
+for (int i = 0; i < luvut.length; i++) {
+    System.out.println(luvut[i]);
+}
+
+jarjesta(luvut);
+
+System.out.println("*****");
+for (int i = 0; i < luvut.length; i++) {
+    System.out.println(luvut[i]);
+}
+
+Tulostaa
+1
+5
+1
+2
+-1
+777
+*****
+777
+5
+2
+1
+1
+-1

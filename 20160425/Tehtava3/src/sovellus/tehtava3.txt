@@ -1,0 +1,137 @@
+Tehtävä 3: Sensorit
+
+Tässä tehtävässä toteutetaan erilaisia sensoreita. Tehtävään on automaattiset
+testit.
+
+Kaikki sovelluksessa oleva koodi tulee sijoittaa pakkaukseen sovellus. 
+
+Käytössämme on seuraava rajapinta:
+
+public interface Sensori {
+    boolean onPaalla();  // palauttaa true jos sensori on päällä
+    void paalle();       // käynnistä sensorin
+    void poisPaalta();   // sulkee sensorin
+    int mittaa();        // palauttaa sensorin lukeman jos sensori on päällä
+                         // jos sensori ei päällä heittää poikkeuksen IllegalStateException
+}
+
+Osa 1: VAKIOSENSORI
+
+Tee luokka Vakiosensori joka toteuttaa rajapinnan Sensori.
+
+Vakiosensori on koko ajan päällä. Metodien paalle ja poisPaalta kutsuminen ei 
+tee mitään. Vakiosensorilla tulee olla konstruktori, jonka parametrina on 
+kokonaisluku. Metodikutsu mittaa palauttaa aina konstruktorille parametrina 
+annetun luvun.
+
+Esimerkki:
+
+public static void main(String[] args) {
+  Vakiosensori kymppi = new Vakiosensori(10);
+  Vakiosensori miinusViis = new Vakiosensori(-5);
+
+  System.out.println(kymppi.mittaa());
+  System.out.println(miinusViis.mittaa());
+
+  System.out.println(kymppi.onPaalla());
+  kymppi.poisPaalta();
+  System.out.println(kymppi.onPaalla());
+}
+
+Tulostuu:
+
+10
+-5
+true
+true
+
+
+Osa 2: LAMPOMITTARI
+
+Tee luokka Lampomittari joka toteuttaa rajapinnan Sensori.
+
+Aluksi lämpömittari on poissa päältä. Kutsuttaessa metodia mittaa kun mittari 
+on päällä mittari arpoo luvun väliltä -30...30 ja palauttaa sen kutsujalle. 
+Jos mittari ei ole päällä, heitetään poikkeus IllegalStateException.
+
+
+Osa 3: KESKIARVOSENSORI
+
+Tee luokka Keskiarvosensori joka toteuttaa rajapinnan Sensori.
+
+Keskiarvosensori sisältää useita sensoreita. Rajapinnan Sensori määrittelemien 
+metodien lisäksi keskiarvosensorilla on metodi public void lisaaSensori(Sensori 
+lisattava) jonka avulla keskiarvosensorin hallintaan lisätään uusi sensori.
+
+Keskiarvosensori on päällä silloin kuin kaikki sen sisältävät sensorit ovat 
+päällä. Kun keskiarvosensori käynnistetään, täytyy kaikkien sen sisältävien 
+sensorien käynnistyä jos ne eivät ole käynnissä. Kun keskiarvosensori suljetaan,
+täytyy ainakin yhden sen sisältävän sensorin mennä pois päältä. Saa myös käydä 
+niin että kaikki sen sisältävät sensorit menevät pois päältä.
+
+Keskiarvosensorin metodi mittaa palauttaa sen sisältämien sensoreiden lukemien 
+keskiarvon (koska paluuarvo on int, pyöristyy lukema alaspäin kuten 
+kokonaisluvuilla tehdyissä jakolaskuissa). Jos keskiarvosensorin metodia mittaa 
+kutsutaan sensorin ollessa poissa päältä, tai jos keskiarvosensorille ei vielä 
+ole lisätty yhtään sensoria heitetään poikkeus IllegalStateException.
+
+Seuraavassa sensoreja käyttävä esimerkkiohjelma (huomaa, että sekä Lämpömittarin 
+että Keskiarvosensorin konstruktorit ovat parametrittomia):
+
+public static void main(String[] args) {
+    Sensori kumpula = new Lampomittari();
+    kumpula.paalle();
+    System.out.println("lämpötila Kumpulassa " + kumpula.mittaa() + " astetta");
+
+    Sensori kaisaniemi = new Lampomittari();
+    Sensori helsinkiVantaa = new Lampomittari();
+
+    Keskiarvosensori paakaupunki = new Keskiarvosensori();
+    paakaupunki.lisaaSensori(kumpula);
+    paakaupunki.lisaaSensori(kaisaniemi);
+    paakaupunki.lisaaSensori(helsinkiVantaa);
+
+    paakaupunki.paalle();
+    System.out.println("lämpötila Pääkaupunkiseudulla "+paakaupunki.mittaa() + " astetta");
+}
+
+
+tulostuu (tulostetut lukuarvot riippuvat tietenkin arvotuista lämpötiloista):
+
+lämpötila Kumpulassa 11 astetta
+lämpötila Pääkaupunkiseudulla 8 astetta
+
+
+Huom: kannattaa käyttää Vakiosensori-oliota keskiarvosensorin testaamiseen!
+
+Osa 4: KAIKKI MITTAUKSET
+
+Lisää luokalle Keskiarvosensori metodi public List<Integer> mittaukset(), 
+joka palauttaa listana kaikkien keskiarvosensorin avulla suoritettujen 
+mittausten tulokset. Seuraavassa esimerkki metodin toiminnasta:
+
+public static void main(String[] args) {
+    Sensori kumpula = new Lampomittari();
+    Sensori kaisaniemi = new Lampomittari();
+    Sensori helsinkiVantaa = new Lampomittari();
+
+    Keskiarvosensori paakaupunki = new Keskiarvosensori();
+    paakaupunki.lisaaSensori(kumpula);
+    paakaupunki.lisaaSensori(kaisaniemi);
+    paakaupunki.lisaaSensori(helsinkiVantaa);
+
+    paakaupunki.paalle();
+    System.out.println("lämpötila Pääkaupunkiseudulla "+paakaupunki.mittaa() + " astetta");
+    System.out.println("lämpötila Pääkaupunkiseudulla "+paakaupunki.mittaa() + " astetta");
+    System.out.println("lämpötila Pääkaupunkiseudulla "+paakaupunki.mittaa() + " astetta");
+
+    System.out.println("mittaukset: "+paakaupunki.mittaukset());
+}
+
+tulostuu (tulostetut lukuarvot riippuvat jälleen arvotuista lämpötiloista):
+
+lämpötila Pääkaupunkiseudulla -10 astetta
+lämpötila Pääkaupunkiseudulla -4 astetta
+lämpötila Pääkaupunkiseudulla 5 astetta
+
+mittaukset: [-10, -4, 5]

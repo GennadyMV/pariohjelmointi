@@ -1,0 +1,158 @@
+Tehtävä 4: Numerotiedustelu
+
+Huom: jotta testit toimisivat, ohjelmasi saa luoda vain yhden Scanner-olion. 
+Älä myöskään käytä staattisia muuttujia, testit suorittavat ohjelman useita 
+kertoja joten staattisiin muuttujiin edellisillä suorituskerroilla jääneet 
+arvot todennäköisesti häiritsevät testien toimintaa!
+
+Tehdään sovellus jonka avulla on mahdollista hallinnoida ihmisten puhelinnumeroita ja osoitteita.
+
+Tehtävän voi suorittaa 1-5 pisteen laajuisena. Yhden pisteen laajuuteen on toteutettava seuraavat toiminnot:
+
+1 puhelinnumeron lisäys henkilölle
+2 henkilön puhelinnumeroiden haku
+kahteen pisteeseen vaaditaan edellisten lisäksi
+
+3 numeroa vastaavan henkilön nimen haku
+kolmeen pisteeseen vaaditaan edellisten lisäksi
+
+4 osoitteen lisäys henkilölle
+5 henkilön tietojen (osoite ja puhelinnumero) haku
+neljään pisteeseen vaaditaan toiminto
+
+6 henkilön tietojen poisto
+ja täysiin pisteeseen vaaditaan vielä
+
+7 hakusanalla filtteröity listaus (nimen mukaan aakkostettuna), hakusana voi esiintyä henkilön nimessä tai osoitteessa
+
+---
+
+Esimerkki ohjelman toiminnasta:
+
+ numerotiedustelu
+ käytettävissä olevat komennot:
+ 1 lisää numero
+ 2 hae numerot
+ 3 hae puhelinnumeroa vastaava henkilö
+ 4 lisää osoite
+ 5 hae henkilön tiedot
+ 6 poista henkilön tiedot
+ 7 filtteröity listaus
+ x lopeta
+
+komento: 1
+kenelle: pekka
+numero: 040-123456
+
+komento: 2
+kenen: jukka
+  ei löytynyt
+
+komento: 2
+kenen: pekka
+ 040-123456
+
+komento: 1
+kenelle: pekka
+numero: 09-222333
+
+komento: 2
+kenen: pekka
+ 040-123456
+ 09-222333
+
+komento: 3
+numero: 02-444123
+ ei löytynyt
+
+komento: 3
+numero: 09-222333
+ pekka
+
+komento: 5
+kenen: pekka
+  osoite ei tiedossa
+  puhelinnumerot:
+   040-123456
+   09-222333
+
+komento: 4
+kenelle: pekka
+katu: ida ekmanintie
+kaupunki: helsinki
+
+komento: 5
+kenen: pekka
+  osoite: ida ekmanintie helsinki
+  puhelinnumerot:
+   040-123456
+   09-222333
+
+komento: 4
+kenelle: jukka
+katu: korsontie
+kaupunki: vantaa
+
+komento: 5
+kenen: jukka
+  osoite: korsontie vantaa
+  ei puhelinta
+
+komento: 7
+hakusana (jos tyhjä, listataan kaikki): kk
+
+ jukka
+  osoite: korsontie vantaa
+  ei puhelinta
+
+ pekka
+  osoite: ida ekmanintie helsinki
+  puhelinnumerot:
+   040-123456
+   09-222333
+
+komento: 7
+hakusana (jos tyhjä, listataan kaikki): vantaa
+
+ jukka
+  osoite: korsontie vantaa
+  ei puhelinta
+
+komento: 7
+hakusana (jos tyhjä, listataan kaikki): seppo
+ ei löytynyt
+
+komento: 6
+kenet: jukka
+
+komento: 5
+kenen: jukka
+  ei löytynyt
+
+komento: x
+
+---
+
+Huomioita:
+
+Testien kannalta on oleellista että käyttöliittymä toimii kuten yllä olevassa 
+esimerkissä. Sovellus voi itse päättää kuinka epäkelvot syötteet käsitellään. 
+Testit sisältävät vaan kelvollisia syötteitä.
+
+Ohjelman tulee käynnistyä kun tehtäväpohjassa oleva main-metodi suoritetaan, 
+tehtävässä saa luoda vain yhden Scanner-olion.
+
+Älä käytä staattisia muuttujia, testit suorittavat ohjelman useita kertoja 
+joten staattisiin muuttujiin edellisillä suorituskerroilla jääneet arvot 
+todennäköisesti häiritsevät testien toimintaa!
+
+Älä käytä luokkein nimissä skandeja, ne saattavat aiheuttaa ongelmia testeihin!
+
+Yksinkertaisuuden vuoksi oletetaan että nimi on yksittäinen merkkijono, eli jos 
+halutaan sukunimen mukaan järjestetyn tulostus viimeiseen toimintoon, nimi on 
+annettava muodossa mikkola pekka.
+
+Henkilöllä voi olla useita puhelinnumeroja sekä osoite. Henkilöllä ei 
+kuitenkaan ole välttämättä yhtään puhelinnumeroa tai osoite ei ole tiedossa.
+
+Jos henkilö poistetaan, ei mikään haku saa enää palauttaa henkilön tietoja.
